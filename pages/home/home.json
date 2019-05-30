@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "s-search": "/components/home/search/index",
+    "s-swiper": "/components/home/swiper/index",
+    "s-storeInfo": "/components/home/storeInfo/index",
+    "s-hot": "/components/goods-list/index"
+  }
+}

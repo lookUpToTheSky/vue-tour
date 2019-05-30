@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<view class="wrapper">
+  <s-search />
+  <s-swiper imgs="{{imgList}}" />
+  <s-storeInfo />
+  <view class='space'></view>
+  <view class="hotList">
+    <s-hot wx:for="{{hotList}}" wx:key="key" hot="{{item}}"/>
+  </view>
+</view>

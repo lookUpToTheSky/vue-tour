@@ -1,0 +1,20 @@
+<!--components/swiper/index.wxml-->
+<view class="swiper-container">
+  <swiper indicatorDots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}"  bindchange="onChangeSwiper" current="{{current}}">
+    <block wx:for="{{imgs}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="swiper-dots">
+    <text 
+    wx:for="{{imgs}}" 
+    wx:key="{{index}}"  
+    data-index="{{index}}"
+    class="{{swiperCurrent == index ? 'active' : ''}}"
+    bindtap="onChangeDot"
+    >{{index+1}} 
+    </text>
+  </view>
+</view>

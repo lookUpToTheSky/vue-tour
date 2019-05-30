@@ -1,0 +1,41 @@
+/* components/swiper/index.wxss */
+.swiper-container {
+  position: relative;
+  width: 100%;
+  height:400rpx;
+  overflow: hidden;
+}
+.swiper-container swiper{
+  width: 100%;
+  height: 400rpx;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+.swiper-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30rpx;
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+.swiper-dots text {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 4rpx;
+  background: rgba(0,0,0,.4);
+  font-size: 28rpx;
+  color:#fff;
+  line-height: 50rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.swiper-dots text.active {
+  background: #fff;
+  color:#313131;
+}

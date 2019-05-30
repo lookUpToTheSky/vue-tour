@@ -1,0 +1,38 @@
+/* components/swiper/index.wxss */
+.container {
+  position: absolute;
+  top:40rpx;
+  left:10%;
+  z-index:999;
+  width: 80%;
+  height: 80rpx;
+}
+.search {
+  position: relative;
+  width: 100%;
+  display: flex;
+  line-height: 80rpx;
+  box-sizing:border-box;
+  border: 1rpx solid #ccc;
+  border-radius: 40rpx;
+  background: rgba(225, 225, 225, .3);
+}
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+input {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-right:60rpx;
+  color:#000;
+  border:none;
+}
+.clear {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+}

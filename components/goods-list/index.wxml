@@ -1,0 +1,9 @@
+<!--components/hot/index.wxml-->
+<view class='wrapper'>
+    <view class='petInfo'>
+      <image src="{{hot.img}}"/>
+      <view class='name'>{{hot.name}}</view>
+      <view class='price'>￥{{hot.price}}<text class='hotNum'>{{hot.hotNum}}人已付款</text></view>
+      <view class='flag'>hot</view>
+    </view>
+</view>

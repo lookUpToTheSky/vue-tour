@@ -1,0 +1,9 @@
+<view class='container'>
+  <view class='search'>
+    <view class='icon'>
+      <icon type='search' />
+    </view>
+    <input placeholder='搜索狗狗 幼犬' focus='true' value='{{keywords}}'/>
+    <view class='clear' hidden='{{!keywords}}'><icon type='clear'></icon></view> 
+  </view>
+</view>

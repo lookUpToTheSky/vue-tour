@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/list/list",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#aaffaa",
+    "navigationBarTitleText": "熊二宠物店",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#f00",
+    "borderStyle": "black",
+    "list": [
+      { 
+        "selectedIconPath": "images/home2.jpg",
+        "iconPath": "images/home1.jpg",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/cart2.jpg",
+        "iconPath": "images/cart1.jpg",
+        "pagePath": "pages/list/list",
+        "text": "购物车"
+      },
+      {
+        "selectedIconPath": "images/me2.jpg",
+        "iconPath": "images/me1.jpg",
+        "pagePath": "pages/cart/cart",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
