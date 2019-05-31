@@ -12,6 +12,7 @@ data: {
    'http://img2.imgtn.bdimg.com/it/u=3393566404,2946455918&fm=11&gp=0.jpg',
    'http://img0.imgtn.bdimg.com/it/u=1502096658,1104092262&fm=26&gp=0.jpg'
     ],
+  swiperList: null,
   hotList: [{
     id: 1,
     name: '金毛幼犬',
@@ -78,6 +79,29 @@ data: {
    * 生命周期函数--监听页面加载
    */
 onLoad: function (options) {
+  wx.request({
+    url: 'http://www.2yue.cc/api/swiper',
+    header: {        appkey:"f68bSYqte0m6EibwhARrzTcYDPoV0FobCi06uDfM3eF4QGQQKSywmd71ytM"
+    },
+    success: res => {
+      const error_code = res.data.error_code
+      if (error_code === 0) {
+
+        let swiperList = []
+        res.data.data.forEach((item)=>{
+          swiperList.push(item.img)
+        })
+        this.setData({
+          swiperList: swiperList
+        })
+      }else{
+        wx.showToast({
+          title: res.data.error_msg,
+          duration: 2000
+        })
+      }
+    }
+  })
 
 },
 
@@ -113,14 +137,12 @@ onUnload: function () {
    * 页面相关事件处理函数--监听用户下拉动作
    */
 onPullDownRefresh: function () {
-
 },
 
   /**
    * 页面上拉触底事件的处理函数
    */
 onReachBottom: function () {
-
 },
 
   /**

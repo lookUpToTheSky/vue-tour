@@ -1,0 +1,8 @@
+<!--components/cart/cartInfo/cart.wxml-->
+<view class="goodsInfo">
+  <checkbox color="#000"></checkbox>
+  <image src="{{info.img}}"/>
+  <text>{{info.Name}}</text>
+  <text>￥{{info.price}}</text>
+  <text>{{info.Number}}</text>
+</view>

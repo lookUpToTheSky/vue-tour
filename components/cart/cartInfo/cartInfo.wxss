@@ -1,0 +1,13 @@
+.goodsInfo {
+  width: 100%;
+  margin-bottom:20rpx;
+  border-bottom: 2rpx solid #ccc;
+  display: flex;
+}
+checkbox {
+  margin-top: 10%;
+}
+image {
+  width: 300rpx;
+  height: 240rpx;
+}

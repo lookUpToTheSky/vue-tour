@@ -1,7 +1,7 @@
 <!--pages/home/home.wxml-->
 <view class="wrapper">
   <s-search />
-  <s-swiper imgs="{{imgList}}" />
+  <s-swiper imgs="{{swiperList}}" />
   <s-storeInfo />
   <view class='space'></view>
   <view class="hotList">

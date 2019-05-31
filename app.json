@@ -15,7 +15,7 @@
     "selectedColor": "#f00",
     "borderStyle": "black",
     "list": [
-      { 
+      {
         "selectedIconPath": "images/home2.jpg",
         "iconPath": "images/home1.jpg",
         "pagePath": "pages/home/home",
@@ -24,13 +24,13 @@
       {
         "selectedIconPath": "images/cart2.jpg",
         "iconPath": "images/cart1.jpg",
-        "pagePath": "pages/list/list",
+        "pagePath": "pages/cart/cart",
         "text": "购物车"
       },
       {
         "selectedIconPath": "images/me2.jpg",
         "iconPath": "images/me1.jpg",
-        "pagePath": "pages/cart/cart",
+        "pagePath": "pages/list/list",
         "text": "我的"
       }
     ]
