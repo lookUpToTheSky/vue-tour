@@ -1,0 +1,45 @@
+<view class="info-container">
+  <view class="userInfo">
+    <text>我的头像</text>
+    <image src="{{userInfo.avatarUrl}}" />
+  </view>
+  <view class="userInfo">
+    <text>我的昵称</text>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+  <view class="baseInfo">
+    <view class="title">基本资料</view>
+    <view class="userInfo">
+      <text>生日</text>
+      <text bindtap="onChooseBorn">{{born == ''?'点击选择':born}}</text>
+    </view>
+     <view class="userInfo">
+      <text>性别</text>
+      <radio-group class="chooseSex" bindchange="onChangeSex">
+        <label wx:for="{{sexData}}" wx:key="">
+          <radio value="{{item.value}}" checked="{{sex ==item.value?true:false}}">{{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="saveInfo" bindtap="onSaveInfo">保存</view>
+</view>
+<view class="born-container" hidden="{{!showChoose}}">
+  <picker-view value="{{value}}" bindchange="onChangeBorn">
+    <view class="opt-btn">
+      <text data-type="cancel" bindtap="onChooseOpt">取消       </text>
+      <text data-type="confirm" bindtap="onChooseOpt">确定      </text>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{years}}" wx:key="" >{{item}}年  
+      </view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" wx:key="" >{{item}}月
+      </view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" wx:key="" >{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view>

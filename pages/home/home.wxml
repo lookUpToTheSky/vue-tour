@@ -1,10 +1,8 @@
 <!--pages/home/home.wxml-->
-<view class="wrapper">
   <s-search />
   <s-swiper imgs="{{swiperList}}" />
   <s-storeInfo />
-  <view class='space'></view>
-  <view class="hotList">
-    <s-hot wx:for="{{hotList}}" wx:key="key" hot="{{item}}"/>
+  <view class="hotGoods" wx:for="{{hotGoods}}" wx:key="key" >
+    <s-hot goods="{{item}}" bindgoDetail= "goDetail" />
+    <view class='flag'>hot</view>
   </view>
-</view>

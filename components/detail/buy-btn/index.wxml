@@ -1,0 +1,17 @@
+<view class="btn-container" >
+  <view class="me" data-id="{{0}}" bindtap="goToTab">
+    <image src="/images/tabBar/me1.png" />
+    <text>我的</text>
+  </view>
+  <view class="cart" data-id="{{1}}" bindtap="goToTab">
+    <image src="/images/tabBar/cart1.png" />
+    <text>购物车</text>
+    <view class="flagNum" wx:if="{{cartCount}}">{{cartCount}}</view>
+  </view>
+  <view class="store" data-id="{{2}}" bindtap="goToTab">
+    <image src="/images/tabBar/home1.png" />
+    <text>店铺</text>
+  </view>
+  <view class="addToCart" data-type="addCArt" bindtap="onAddToCart">加入购物车</view>
+  <view class="buy" data-type="buy" bindtap="onAddToCart">立即购买</view>
+</view>

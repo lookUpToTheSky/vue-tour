@@ -1,9 +1,11 @@
-<!--components/hot/index.wxml-->
-<view class='wrapper'>
-    <view class='petInfo'>
-      <image src="{{hot.img}}"/>
-      <view class='name'>{{hot.name}}</view>
-      <view class='price'>￥{{hot.price}}<text class='hotNum'>{{hot.hotNum}}人已付款</text></view>
-      <view class='flag'>hot</view>
+<!--components/goods/index.wxml-->
+<view class="wrapper" data-goods_id="{{goods.goods_id}}"bindtap="onGoDetail">
+    <view class="petInfo">
+      <image src="{{goods.goods_img}}"/>
+      <view class="name">{{goods.goods_name}}</view>
+      <view class="price">
+        <text class="priceNum">￥{{goods.goods_price}}</text>
+        <text class="goodsNum">{{goods.sale_num}}人已付款</text>
+      </view>
     </view>
 </view>

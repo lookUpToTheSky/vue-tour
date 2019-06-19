@@ -1,0 +1,5 @@
+<template name="warn">
+  <view class="warn-container" >
+    <text>没有搜索到相关数据！</text>
+  </view>
+</template>

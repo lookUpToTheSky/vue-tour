@@ -1,8 +1,66 @@
-<!--components/cart/cartInfo/cart.wxml-->
-<view class="goodsInfo">
-  <checkbox color="#000"></checkbox>
-  <image src="{{info.img}}"/>
-  <text>{{info.Name}}</text>
-  <text>￥{{info.price}}</text>
-  <text>{{info.Number}}</text>
+<wxs src="../../../pages/modules/tool.wxs" module="tool">
+</wxs>
+<view class="cart-container">
+  <view class="goodsInfo"  wx:for="{{cart}}" wx:key="">
+    <image 
+    bindtap="onSelecteGoods"
+    data-goods_id="{{item.goods_id}}"
+    src="{{item.goods_selected?'/images/selected.png':'/images/noSelected.png'}}"/>
+    <image src="{{item.goods_img}}"/>
+    <view class="info">
+      <text class="name">{{tool.strCut(item.goods_name, 18)}}</text>
+      <view 
+      class="dele" 
+      bindtap="onDeleteGoods"
+      data-goods_id="{{item.goods_id}}"
+      >删除</view>
+      <text class="price">￥{{item.goods_price}}</text>
+    </view>
+    <view class="buyNum">
+      <view 
+      bindtap="changeBuyNum"
+      data-type="reduce"
+      data-goods_id="{{item.goods_id}}"
+      data-buynum="{{item.goods_buyNum}}"
+      data-maxbuynum="{{item.goods_maxBuyNum}}"
+      class="{{item.goods_buyNum == 1?'noChange':''}}"
+      >-</view>
+      <input 
+      type="number" 
+      bindblur="changeBuyNum"
+      data-type="change"
+      data-goods_id="{{item.goods_id}}"
+      data-buynum="{{item.goods_buyNum}}"
+      data-maxbuynum="{{item.goods_maxBuyNum}}"
+      value="{{item.goods_buyNum}}"
+      />
+      <view 
+      bindtap="changeBuyNum"
+      data-type="increase"
+      data-goods_id="{{item.goods_id}}"
+      data-buynum="{{item.goods_buyNum}}"
+      data-maxbuynum="{{item.goods_maxBuyNum}}"
+      class="{{item.goods_buyNum ==item.goods_maxBuyNum?'noChange':''}}"
+      >+</view>
+    </view>
+  </view>
+  <view class="btn-container" >
+    <view 
+    class="selectedAll"
+    bindtap="onSelectedAll"
+    data-selected="{{selectedAll}}"
+    >
+      <image src="{{selectedAll?'/images/selected.png':'/images/noSelected.png'}}"/>
+      <text>全选</text>
+    </view>
+    <view class="clear" bindtap="onClearCart" >清空</view>
+    <view class="totalCount">
+      总计：￥<text>{{count}}</text>
+    </view>
+    <view 
+    class="buy" 
+    bindtap="onPay"
+    
+    >去结算</view>
+  </view>
 </view>

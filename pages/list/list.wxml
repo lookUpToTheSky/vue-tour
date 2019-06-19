@@ -1,2 +1,24 @@
-<!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<q-search 
+bindshow="showCategory" 
+bindsearch="search"
+keyword="{{keyword}}"
+ />
+
+<import src="templates/navigate.wxml"/>
+<template is="navigate" data="{{sortField}}"></template>
+
+<view 
+class="goods-container" 
+wx:for="{{goodsList}}" 
+wx:key="item.id">
+<q-goods goods="{{item}}" />
+</view>
+
+<view hidden="{{showCategory}}">
+  <q-category category="{{categoryList}}" bindhide="hideCategory"/>
+</view>
+
+<import src="templates/warn.wxml"/>
+<template is="warn" wx:if="{{warnShow}}"></template>
+
+<q-filter bindfilterPrice="filterPrice" filterShow="{{filterShow}}"/>

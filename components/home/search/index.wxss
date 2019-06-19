@@ -15,7 +15,7 @@
   box-sizing:border-box;
   border: 1rpx solid #ccc;
   border-radius: 40rpx;
-  background: rgba(225, 225, 225, .3);
+  background: rgba(225, 225, 225, .7);
 }
 .icon {
   width: 80rpx;

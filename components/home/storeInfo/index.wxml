@@ -1,13 +1,13 @@
 <!--components/address/index.wxml-->
 <view class="container">
-  <view class="title">熊二宠物店</view>
+  <view class="title">店铺简介</view>
   <view class="info">
     <view class="brife">
       <text>
-        本店出售纯正宠物狗，可上门购买，可线上购买包邮发货，信用第一，绝不出假货，假一罚十。
+        本店出售便宜正品，欢迎进店购买，也可线上购买，包邮发货，信用第一，绝不出售假货，假一罚十。
       </text>
     </view>
-    <view class="time"><icon type='success_no_circle'/>营业时间：9:00~18:00</view>
+    <view class="time"><icon type='success_no_circle'/>营业时间：9:00~21:00</view>
     <view class="phone"><icon type='success_no_circle'/>联系方式：1000000</view>
     <view class="address"><icon type='success_no_circle'/>地址：湖南省长沙市天心区</view>
   </view>

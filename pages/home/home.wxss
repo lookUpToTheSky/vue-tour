@@ -1,9 +1,27 @@
 /* pages/home/home.wxss */
-
-.space {
-  width: 100%;
-  height: 20rpx;
-  background: #ccc;
+.hotGoods{
+  position: relative;
+  float: left;
+  width: 46%;
+  height: 452rpx;
+  background: #fff;
+  margin: 20rpx 0 0 20rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 20rpx;
+  overflow: hidden;
 }
+.flag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:80rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  color:#fff;
+  text-align: center;
+  border-radius: 0 0 20rpx 0;
+  background: red;
+}
+
 
 

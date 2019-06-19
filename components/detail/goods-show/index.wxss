@@ -1,0 +1,113 @@
+.goods-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.swiper {
+  width: 100%;
+  height: 500rpx;
+}
+.swiper image{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.goods-container .flag{
+  position: absolute;
+  top: 420rpx;
+  right: 40rpx;
+  border-radius: 80rpx;
+  width: 80rpx;
+  height: 50rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  background: rgba(0, 0, 0, .5)
+}
+.goods-info{
+  width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 20rpx solid #e6e6e6;
+}
+.goodsName{
+  width: 80%;
+  height: 100rpx;
+  font-size: 36rpx;
+  font-weight: 550;
+  padding-right: 20rpx;
+}
+.share{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.share image{
+  margin: 0 auto;
+  width: 50rpx;
+  height: 50rpx;
+}
+.goodsPrice{
+  margin-top:20rpx;
+  width: 70%;
+  font-size: 32rpx;
+  display: flex;
+  line-height: 50rpx;
+  flex-direction: column;
+}
+.salePrice{
+  color:orangered;
+}
+.salePrice text{
+  font-size: 44rpx;
+}
+.originalPrice{
+  color: #666;
+  text-decoration: line-through;
+}
+.saleNum{
+  color:#666;
+  width: 30%;
+  font-size:28rpx;
+  margin-top: 80rpx;
+  text-align: right;
+}
+.buyNum{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  border-bottom:20rpx solid #e6e6e6;
+}
+.buyNum text{
+  display: block;
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border:2rpx solid #ccc;
+  text-align: center;
+}
+.buyNum .noChange{
+  background: #e6e6e6;
+}
+.buyNum input{
+  float:left;
+  width: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-top:2rpx solid #ccc;
+  border-bottom:2rpx solid #ccc;
+}

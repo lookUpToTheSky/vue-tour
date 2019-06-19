@@ -1,0 +1,32 @@
+.picDetail  {
+  width: 100%;
+  height: auto;
+  margin-top: 80rpx;
+  padding-top: 20rpx;
+  background: #e6e6e6;
+}
+.title{
+  width:100%;
+  height: 100rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size:40rpx;
+  color: red;
+}
+.line{
+  width: 160rpx;
+  height: 4rpx;
+  background: red;
+  margin: 0 auto;
+}
+.pic-container{
+  width: 100%;
+  background: #fff;
+  margin-top: 4rpx;
+  padding: 120rpx 0; 
+}
+.pic-container image {
+  width: 100%;
+  height: 500rpx;
+}

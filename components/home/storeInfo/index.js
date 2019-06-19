@@ -19,7 +19,23 @@ Component({
    */
   methods: {
     getDiscountCoupon () {
-      console.log(111)
+      wx.openCard({
+        cardList: [{
+          cardId: '0',
+          code: '50'
+        }],
+        success(res) {
+          console.log(res)
+        },
+        fail: error =>{
+          console.log(error)
+        }
+      })
+      wx.showToast({
+        title: '成功领取一张50元优惠卷',
+        icon: 'none',
+        duration: 3000
+      })
     }
 
   }

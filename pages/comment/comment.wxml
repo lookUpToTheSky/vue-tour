@@ -1,0 +1,11 @@
+<wxs src="../modules/tool.wxs" module="tool"></wxs>
+<view class="com-container">
+  <view class="comment-item" wx:for="{{comment}}" wx:key="{{item.id}}">
+    <view class="userName">
+      <image src="/images/tabBar/me1.png" />
+      <text>{{item.username}}</text>
+      <text class="addTime">{{tool.timeFormat(item.add_time)}}</text>
+    </view>
+    <text class="userComment">{{tool.strCut(item.content, 100)}}</text>
+  </view>
+</view>

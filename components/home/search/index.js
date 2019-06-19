@@ -18,5 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onSearchGoods (e) {
+      console.log(e.detail.value)
+      wx.reLaunch({
+        url: `/pages/list/list?keyword=${e.detail.value}`,
+      })
+    }
   }
 })

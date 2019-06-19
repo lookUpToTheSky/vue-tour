@@ -1,0 +1,41 @@
+<view  class="goods-container">
+  <swiper class="swiper" bindchange="onChange">
+    <block wx:for="{{goodsImgs}}" wx:key="">
+      <swiper-item>
+        <image src="{{goodsImgs[index]}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="flag">{{current+1}}/{{goodsImgs.length}} 
+  </view>
+  <view class="goods-info">
+    <view class="goodsName">{{goods.goods_name}}</view>
+    <view class="share">
+      <image src="/images/share.png"/>
+      <text>分享</text>      
+    </view>
+    <view class="goodsPrice">
+      <text class="salePrice">销售价：￥<text>{{goods.goods_price}}</text></text>
+    <text class="originalPrice">市场价：￥{{goods.market_price}}</text>
+    </view>
+    <view class="saleNum">销量：{{goods.sale_num}}件</view>
+  </view>
+  <view class="buyNum">
+    <view>数量</view>
+    <view>
+      <text 
+      bindtap="redBuyNum"
+      class="{{buyNum == 1?'noChange':''}}"
+      >-</text>
+      <input 
+      type="number" 
+      value="{{buyNum}}"
+      bindblur="inputBuyNum"
+       />
+      <text 
+      bindtap="incBuyNum"
+      class="{{buyNum == maxBuyNum?'noChange':''}}"
+      >+</text>
+    </view>
+  </view>
+</view>

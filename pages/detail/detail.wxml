@@ -1,0 +1,32 @@
+<d-goodsshow 
+goodsImgs="{{goodsImgs}}" 
+goods="{{goods}}"
+buyNum="{{buyNum}}"
+maxBuyNum="{{maxBuyNum}}"
+bindgetBuyNum="getBuyNum"
+ />
+
+<d-buybtn 
+bindaddCart="addCart" 
+buyNum="{{buyNum}}"
+maxBuyNum="{{maxBuyNum}}"
+cartCount="{{cartCount}}"
+ />
+
+<d-comment 
+comment="{{comment}}" 
+commentTotal="{{commentTotal}}"
+goods_id="{{goods_id}}"
+ />
+
+<view class="picDetail">
+  <view class="title">
+    <text>图片详情</text>
+    <view class="line"></view>
+  </view>
+  <view class="pic-container" >
+    <block wx:for="{{goodsImgs}}" wx:key="">
+      <image src="{{item}}" />
+    </block> 
+  </view>
+</view>

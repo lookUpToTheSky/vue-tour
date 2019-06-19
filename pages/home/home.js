@@ -1,108 +1,115 @@
 // pages/home/home.js
+import {HomeModel} from '../../model/home.js'
+import { UserModel } from '../../model/user.js'
+import { AddressModel } from '../../model/address.js'
+const userModel = new UserModel()
+const addressModel = new AddressModel()
+let homeModel = new HomeModel()
 Page({
-
   /**
    * 页面的初始数据
    */
 data: {
-  imgList: [
-    'http://img0.imgtn.bdimg.com/it/u=24476680,2394022832&fm=26&gp=0.jpg', 
-   'http://img2.imgtn.bdimg.com/it/u=181331400,4052035088&fm=26&gp=0.jpg', 
-   'http://img3.imgtn.bdimg.com/it/u=3920193545,3976251098&fm=26&gp=0.jpg',
-   'http://img2.imgtn.bdimg.com/it/u=3393566404,2946455918&fm=11&gp=0.jpg',
-   'http://img0.imgtn.bdimg.com/it/u=1502096658,1104092262&fm=26&gp=0.jpg'
-    ],
+  page: 1,
+  count: 2,
+  totalPage: 0,
   swiperList: null,
-  hotList: [{
-    id: 1,
-    name: '金毛幼犬',
-    price: '1000',
-    hotNum: '886',
-    img: 'http://img0.imgtn.bdimg.com/it/u=24476680,2394022832&fm=26&gp=0.jpg'
-  }, {
-      id: 2,
-      name: '拉布拉多',
-      price: '1200',
-      hotNum: '766',
-      img: 'http://img2.imgtn.bdimg.com/it/u=181331400,4052035088&fm=26&gp=0.jpg'
-    }, {
-      id: 3,
-      name: '可爱博美',
-      price: '1000',
-      hotNum: '856',
-      img: 'http://img3.imgtn.bdimg.com/it/u=3920193545,3976251098&fm=26&gp=0.jpg'
-    }, {
-      id: 4,
-      name: '金毛成犬',
-      price: '2000',
-      hotNum: '516',
-      img: 'http://img2.imgtn.bdimg.com/it/u=3393566404,2946455918&fm=11&gp=0.jpg'
-    }, {
-      id: 5,
-      name: '进口博美',
-      price: '1000',
-      hotNum: '689',
-      img: 'http://img0.imgtn.bdimg.com/it/u=1502096658,1104092262&fm=26&gp=0.jpg'
-    }, {
-      id: 6,
-      name: '迷你犬',
-      price: '1500',
-      hotNum: '586',
-      img: 'http://img2.imgtn.bdimg.com/it/u=3302739227,582881985&fm=26&gp=0.jpg'
-    }, {
-      id: 7,
-      name: '纯正二哈',
-      price: '998',
-      hotNum: '886',
-      img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3147146028,1278933774&fm=15&gp=0.jpg'
-    }, {
-      id: 8,
-      name: '哈巴狗',
-      price: '500',
-      hotNum: '986',
-      img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1277284336,1893243096&fm=15&gp=0.jpg'
-    }, {
-      id: 9,
-      name: '纯正蝴蝶犬',
-      price: '2000',
-      hotNum: '686',
-      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3624779171,1827296100&fm=26&gp=0.jpg'
-    },{id: 10,
-    name: '小柯基',
-    price: '1800',
-    hotNum: '506',
-      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1561151436,720013885&fm=26&gp=0.jpg'
-    }]
+  hotGoods:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
 onLoad: function (options) {
-  wx.request({
-    url: 'http://www.2yue.cc/api/swiper',
-    header: {        appkey:"f68bSYqte0m6EibwhARrzTcYDPoV0FobCi06uDfM3eF4QGQQKSywmd71ytM"
-    },
-    success: res => {
-      const error_code = res.data.error_code
-      if (error_code === 0) {
+  wx.removeStorageSync('hot')
+  this._getGoodsCount()
+  this._getSwiper()
+  this._getHotGoods(this.data.page, this.data.count)
+},
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this._getToken()
+  },
+ // 登录
+ _login () {
+   wx.login({
+     success: res => {
+       if (res.code) {
+         userModel.getTokenFromSever(res.code).then(res => {
+           userModel.setToken(res.data.data.token)
+         })
+       }
+     },
+     fail: error => {
 
-        let swiperList = []
-        res.data.data.forEach((item)=>{
-          swiperList.push(item.img)
-        })
-        this.setData({
-          swiperList: swiperList
-        })
-      }else{
-        wx.showToast({
-          title: res.data.error_msg,
-          duration: 2000
+     }
+   })
+ },
+ //获取token
+ _getToken () {
+   if (!userModel.getToken()){
+      this._login()
+   }else{
+      userModel.checkedToken(userModel.getToken()).then(res => {
+      if(!res.data.data.isValid) {
+        this._login()
+      }  
+    })
+   }
+ },
+//获取轮播图
+_getSwiper () {
+ const swiper = wx.getStorageSync('swiper')
+ if (!swiper) {
+    homeModel.getSwiper().then((res)=>{
+      let swiperList = []
+      res.data.data.forEach((item) => {
+        swiperList.push(item.img)
+      })
+      this.setData({
+        swiperList: swiperList
+      })
+      wx.setStorageSync('swiper', swiperList)
+    })
+  }else{
+    this.setData({
+      swiperList: swiper
+    })
+  }
+},
+
+_getHotGoods (page, count) {
+  let hotData = this.data.hotGoods
+  homeModel.getHotGoods({
+    page,
+    count,
+  }).then(res => {
+    let result = res.data.data.goods
+    let totalpage = page
+    if (result) {
+      if (!hotData) {
+        hotData = result
+      } else {
+        result.forEach(item => {
+          hotData.push(item)
         })
       }
+      this.setData({
+        hotGoods: hotData
+      })
     }
   })
+},
 
+_getGoodsCount () {
+  homeModel.getGoodsCount().then(res => {
+    let totalPage = res.data.data / this.data.count
+    this.setData({
+      totalPage: totalPage
+    })
+  })
 },
 
   /**
@@ -111,14 +118,6 @@ onLoad: function (options) {
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-onShow: function () {
-
-},
-
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -143,8 +142,14 @@ onPullDownRefresh: function () {
    * 页面上拉触底事件的处理函数
    */
 onReachBottom: function () {
+  let page = this.data.page + 1
+  if(page <= this.data.totalPage){
+    this.setData({
+      page: page
+    })
+    this._getHotGoods(page, this.data.count)
+  }
 },
-
   /**
    * 用户点击右上角分享
    */

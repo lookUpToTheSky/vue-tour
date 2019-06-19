@@ -1,0 +1,16 @@
+<view class="filter-container" wx:if="{{filterShow}}">
+  <view class="filter-mask">
+    <form bindsubmit="onFilterPrice">
+    <view class="filter-tit">价格区间(元)</view>
+    <view class="filter-price">
+      <input  name="minPrice" placeholder="最低价格" />
+      <view class="line"></view>
+      <input name="maxPrice" placeholder="最高价格" />
+    </view>
+    <view class="filter-btn">
+      <button form-type="reset" plain="{{false}}">重置</button>
+      <button form-type="submit" plain="{{false}}">确定</button>
+    </view>
+    </form> 
+  </view>
+</view>

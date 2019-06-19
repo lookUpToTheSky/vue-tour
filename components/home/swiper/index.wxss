@@ -2,12 +2,12 @@
 .swiper-container {
   position: relative;
   width: 100%;
-  height:400rpx;
+  height: 700rpx;
   overflow: hidden;
 }
 .swiper-container swiper{
   width: 100%;
-  height: 400rpx;
+  height: 700rpx;
 }
 .slide-image {
   width: 100%;

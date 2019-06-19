@@ -1,34 +1,30 @@
 // pages/cart/cart.js
+import {CartModel} from '../../model/cart.js'
+let cartModel = new CartModel()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cartList: [{
-      id: 1,
-      name: '金毛幼犬',
-      price: '1000',
-      hotNum: '886',
-      goodsNum:'1',
-      img: 'http://img0.imgtn.bdimg.com/it/u=24476680,2394022832&fm=26&gp=0.jpg'
-    }, {
-      id: 2,
-      name: '拉布拉多',
-      price: '1200',
-      hotNum: '766',
-      goodsNum: '1',
-      img: 'http://img2.imgtn.bdimg.com/it/u=181331400,4052035088&fm=26&gp=0.jpg'
-    }]
+    cartList: null,
+    count: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '购物车',
+    })
   },
-
+  //获取购物车数据
+  _getCartData () {
+    this.setData({
+       cartList: cartModel.getCartData()
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -40,7 +36,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this._getCartData()
+    this.setData({
+      count: cartModel.getSelectedTotal()
+    }) 
   },
 
   /**
@@ -61,7 +60,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
@@ -76,5 +74,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //删除商品
+  deleteGoods (e) {
+    this.setData({
+      cartList: e.detail
+    })
+  },
+  clearCart () {
+    this.setData({
+      cartList: null
+    })
   }
 })

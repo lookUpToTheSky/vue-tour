@@ -1,0 +1,22 @@
+<!--components/list/category/index.wxml-->
+<view class="category-container" bindtap="onHideCategory">
+  <view class="category-list">
+    <view class="totalGoods" data-cat_id="{{0}}" catchtap="onSelectCategory">全部商品</view>
+    <view 
+    class="goodsList" 
+    wx:for="{{category}}" 
+    wx:key="{{item.cat_id}}"
+    >
+      <text class="title">{{item.cat_name}}</text>
+      <text 
+      class="list" 
+      wx:if="{{item.children}}" 
+      wx:for="{{item.children}}"
+      wx:for-item="value"  
+      wx:key="{{value.cat_id}}"
+      data-cat_id="{{value.cat_id}}"
+      catchtap="onSelectCategory"
+      >{{value.cat_name}}</text>
+    </view>
+  </view>
+</view>

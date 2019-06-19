@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "d-goodsshow":"/components/detail/goods-show/index",
+    "d-buybtn":"/components/detail/buy-btn/index",
+    "d-comment": "/components/detail/comment/index"
+  }
+}

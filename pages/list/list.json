@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "q-search": "/components/list/search/index",
+    "q-goods": "/components/goods-list/index",
+    "q-category": "/components/list/category/index",
+    "q-filter": "/components/list/filter/index"
+  }
 }

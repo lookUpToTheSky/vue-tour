@@ -2,35 +2,46 @@
   "pages": [
     "pages/home/home",
     "pages/list/list",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/me/me",
+    "pages/detail/detail",
+    "pages/comment/comment",
+    "pages/pay/pay",
+    "pages/editor/editor"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#aaffaa",
-    "navigationBarTitleText": "熊二宠物店",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "杂货铺",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#f00",
+    "selectedColor": "#d81e06",
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "images/home2.jpg",
-        "iconPath": "images/home1.jpg",
+        "selectedIconPath": "images/tabBar/home2.png",
+        "iconPath": "images/tabBar/home1.png",
         "pagePath": "pages/home/home",
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/cart2.jpg",
-        "iconPath": "images/cart1.jpg",
+        "selectedIconPath": "images/tabBar/goods2.png",
+        "iconPath": "images/tabBar/goods1.png",
+        "pagePath": "pages/list/list",
+        "text": "全部商品"
+      },
+      {
+        "selectedIconPath": "images/tabBar/cart2.png",
+        "iconPath": "images/tabBar/cart1.png",
         "pagePath": "pages/cart/cart",
         "text": "购物车"
       },
       {
-        "selectedIconPath": "images/me2.jpg",
-        "iconPath": "images/me1.jpg",
-        "pagePath": "pages/list/list",
+        "selectedIconPath": "images/tabBar/me2.png",
+        "iconPath": "images/tabBar/me1.png",
+        "pagePath": "pages/me/me",
         "text": "我的"
       }
     ]

@@ -1,0 +1,64 @@
+<view class="user-container">
+  <view class="user-header">
+    <view class="portrait">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+        <open-data class="userName" type="userNickName"></open-data>
+        <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onEditor"  
+        plain="{{true}}">
+          <image src="/images/editor.png"/>
+        </button>
+  </view>
+  <view class="user-order">
+    <view class="title">我的订单</view>
+    <view class="order-container">
+      <view>
+        <image src="/images/pay.png" />
+        <text>待付款</text>
+      </view>
+      <view>
+        <image src="/images/wait.png" />
+        <text>待发货
+        </text>
+      </view>
+      <view>
+        <image src="/images/waitGet.png" />
+        <text>待收款</text>
+      </view>
+      <view>
+        <image src="/images/write.png" />
+        <text>评价</text>
+      </view>
+      <view>
+        <image src="/images/refund.png" />
+        <text>退款</text>
+      </view>
+    </view>
+  </view>
+  <view class="user-address" bindtap="onChooseAddress">
+    <image src="/images/address.png" />
+    <text>收货地址</text>
+    <image 
+    bindtap="onChooseAddress" 
+    src="/images/back.png" />
+  </view>
+  <view class="user-address">
+    <image src="/images/my-appraise.png" />
+    <text>我的评价</text>
+    <image 
+    bindtap="onChooseAddress" 
+    src="/images/back.png" />
+  </view>
+  <view class="editorInfo">
+    <button 
+    open-type="getUserInfo" 
+    bindgetuserinfo="onEditor"  
+    plain="{{true}}">
+      <image src="/images/write.png" />
+      <text class="">编辑资料</text>
+      <image src="/images/back.png" />
+    </button>
+  </view>
+</view>

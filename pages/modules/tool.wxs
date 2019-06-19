@@ -1,0 +1,16 @@
+function strCut (str, length, ellspsis='...') {
+  var str_len = str.length
+  if(str_len >= length) {
+    return str.substring(0, length) + ellspsis;
+  }
+  return str
+}
+function timeFormat (time, format='.') {
+  var milliseconds = time * 1000;
+  var data = getDate(milliseconds)
+  return data.getFullYear() + format + data.getMonth() + format + data.getDate()
+}
+module.exports = {
+  strCut: strCut,
+  timeFormat: timeFormat
+}

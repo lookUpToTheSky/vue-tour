@@ -1,0 +1,23 @@
+
+<view class="comment-container">
+  <view class="comment-tit">
+   
+    <text>商品评价</text>
+    <view bindtap="onCommentDetail">
+      <text>{{commentTotal}}条</text>
+      <image src="/images/back.png"/>
+    </view>
+  </view>
+  <scroll-view class="comment-con" scroll-x="{{true}}">
+    <view class="comment-item" wx:for="{{comment}}" wx:key="" >
+      <view class="userName">
+        <image src="/images/tabBar/me1.png" />
+        <text>{{item.username}}</text>
+      </view>
+      <text class="userComment">{{tool.strCut(item.content, 30)}}</text>
+    </view>  
+  </scroll-view> 
+</view>
+
+<wxs src="../../../pages/modules/tool.wxs" module="tool">
+</wxs>

@@ -1,0 +1,62 @@
+<wxs src="../modules/tool.wxs" module="tool">
+</wxs>
+<view class="pay-container">
+  <view class="address">
+    <view class="addressInfo">
+      <image src="/images/position.png" />
+      <text
+      class="nullAddress"
+      bindtap="onChooseAddress" 
+      wx:if="{{address == null}}"
+      >添加收货地址</text>
+      <view class="user" wx:if="{{address != null}}" >
+        <view>
+           <text class="userName">收货人：{{userInfo.name}}</text>
+        <text class="userNamePhone">{{userInfo.phone}}</text>
+        </view>
+        <text class="userAddress">收货地址：{{address}}</text>
+      </view>
+      <image 
+      bindtap="onChooseAddress" 
+      src="/images/address-back.png" />
+    </view>
+    <view class="line">
+      <view wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key=""></view>
+    </view>
+  </view>
+    <view class="title">
+      <image src="/images/order.png"/>
+      <text>购物清单</text>
+    </view>
+    <view class="goodsInfo"  wx:for="{{cartList}}" wx:key="">
+      <image src="{{item.goods_img}}"/>
+      <view class="info">
+        <text class="name">{{tool.strCut(item.goods_name, 20)}}</text>
+        <view class="num">
+          <text class="price">￥{{item.goods_price}}</text>
+          <text class="buyNum">*{{item.goods_buyNum}}</text>
+        </view>
+      </view>
+  </view>
+  <view class="order-detai">
+    <view class="account">
+      <view>共{{goodsCount}}件商品</view>
+      <view>合计：<text class="accountPrice">￥{{account}}</text></view>
+    </view>
+    <view class="payWay">
+      <text>支付方式</text>
+      <text>在线支付</text>
+      <image src="/images/back.png"/>
+    </view>
+    <view class="pay">
+      <text>实际支付</text>
+      <text>￥{{account}}</text>
+    </view>
+  </view>
+  <view class="btn-container" >
+    <view class="totalCount">
+      实付：<text>￥{{account}}</text>
+    </view>
+    <view class="buy" bindtap="onPostOrder">提交订单</view>
+  </view>
+</view>

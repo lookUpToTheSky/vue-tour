@@ -1,0 +1,11 @@
+<!--components/list/search/index.wxml-->
+<view class="list_container">
+  <view class="list_category" bindtap="onShowCategory">
+    <image src="/images/category.png" />
+    <text>分类</text>
+  </view>
+  <view class="list_search">
+    <icon type="search" ></icon>
+    <input placeholder="请输入商品名称" bindconfirm="searchGoods" value="{{keyword}}"/>
+  </view>
+</view>

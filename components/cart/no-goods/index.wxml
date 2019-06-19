@@ -1,0 +1,6 @@
+<view class="container" wx:if="{{is_null}}">
+  <image src="/images/nullCart.png" />
+  <view>购物车竟然是空的</view>
+  <view>在忙，也要记得买点东西犒劳自己</view>
+  <button plain="{{true}}" bindtap="onShop">去逛一逛</button>
+</view>

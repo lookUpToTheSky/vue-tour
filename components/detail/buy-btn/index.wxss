@@ -1,0 +1,55 @@
+.btn-container{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  height: 120rpx;
+  display: flex;
+  width: 100%;
+  background: #ccc;
+  font-size: 36rpx;
+  text-align: center;
+}
+.me, .cart, .store{
+  position: relative;
+  width: 15%;
+  height: 120rpx;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.flagNum {
+  position: absolute;
+  top: 10rpx;
+  left: 15rpx;
+  width: 35rpx;
+  height: 35rpx;
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+  line-height: 40rpx;
+  text-align: center;
+}
+.btn-container image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.btn-container text {
+  width: 100rpx;
+  height: 40rpx;
+}
+.addToCart{
+  color: #fff;
+  background: orange;
+  width: 30%;
+  line-height: 120rpx; 
+}
+.buy {
+  color: #fff;
+  background: orangered;
+  line-height: 120rpx; 
+  width: 30%;
+}

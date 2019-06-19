@@ -1,5 +1,10 @@
 <!--pages/cart/cart.wxml-->
-<view wx:for="{{cartList}}">
-  <c-cartinfo info="{{item}}"></c-cartinfo>
-</view>
+<c-cartinfo 
+cart="{{cartList}}" 
+count="{{count}}"
+bindclearCart="clearCart"
+binddeleteGoods="deleteGoods"
+></c-cartinfo>
+<c-nogoods cartList="{{cartList}}"/>
+
 

@@ -1,0 +1,12 @@
+<template name="navigate" >
+  <view class="navigate-container" bindtap="onGoodsSort">
+    <view class="{{sortField == 'goods_id' ? 'active':''}}" data-sort="goods_id">综合</view>
+    <view class="{{sortField == 'is_new' ? 'active':''}}" data-sort="is_new">新品</view>
+    <view class="{{sortField == 'sale_num' ? 'active':''}}" data-sort="sale_num">销量</view>
+    <view class="{{sortField == 'goods_price'? 'active':''}}" data-sort="goods_price">价格<image src="/images/price.png" /></view>
+    <view class="line">|</view>
+    <view class="fliter"catchtap="onFliter">筛选
+      <image src="/images/fliter.png" />
+    </view>
+  </view>
+</template>
